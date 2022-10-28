@@ -3,10 +3,15 @@ using System.Collections.Generic;
 
 namespace Statistics
 {
-    public class Average
+    public static class Average
     {
-        public double Mean(List<int> numbers)
+        public static double Mean(List<int> numbers)
         {
+            if(numbers.Count == 0)
+            {
+                throw new ArgumentException("Die Liste ist leer.");
+            }
+
             int sum = 0;
             double mean = 0.0;
 
