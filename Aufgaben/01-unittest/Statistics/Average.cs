@@ -7,7 +7,7 @@ namespace Statistics
     {
         public static double Mean(List<int> numbers)
         {
-            if(numbers.Count == 0)
+            if (numbers.Count == 0)
             {
                 throw new ArgumentException("Die Liste ist leer.");
             }
@@ -22,6 +22,28 @@ namespace Statistics
 
             mean = (double)sum / numbers.Count;
             return mean;
+        }
+
+        public static double Median(List<double> numbers)
+        {
+            if (numbers.Count == 0)
+            {
+                throw new ArgumentException("Die Liste ist leer.");
+            }
+
+            numbers.Sort();
+
+            if (numbers.Count % 2 == 0)
+            {
+                double num1 = numbers[numbers.Count / 2 - 1];
+                double num2 = numbers[numbers.Count / 2];
+
+                return (num1 + num2) / 2;
+            }
+            else
+            {
+                return numbers[numbers.Count / 2];
+            }
         }
     }
 }

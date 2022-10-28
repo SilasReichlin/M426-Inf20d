@@ -10,7 +10,7 @@ namespace Statistics.Tests
         public void TestMeanOfTwoNumbers()
         {
             List<int> numbers = new List<int> { 2, 4 };
-            double expected = 6;
+            double expected = 3;
 
             double actual = Average.Mean(numbers);
 
@@ -35,14 +35,43 @@ namespace Statistics.Tests
         public void Median_OddNumbersOfElements_ReturnsCorrectMedian()
         {
             //Arrange
-            List<int> numbers = new List<int>{ 1, 2, 3, 4, 5 };
-            double expected = 3;
+            List<double> numbers = new List<double> { 1, 9, 4, 5, 6, 8, 2 };
+            double expected = 5;
 
             //Act
             double actual = Average.Median(numbers);
 
             //Assert
             Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Median_EvenNumbersOfElements_ReturnsCorrectMedian()
+        {
+            //Arrange
+            List<double> numbers = new List<double> { 1, 2, 8, 4, 5, 6, 8, 9 };
+            double expected = 5.5;
+
+            //Act
+            double actual = Average.Median(numbers);
+
+            //Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void Median_EmptyList_ReturnsArgumentException()
+        {
+            //Arrange
+            List<double> numbers = new List<double>();
+            string expected = "Die Liste ist leer.";
+
+            //Act
+            void act() => Average.Median(numbers);
+
+            //Assert
+            ArgumentException argumentException = Assert.Throws<ArgumentException>(act);
+            Assert.Equal(expected, argumentException.Message);
         }
     }
 }
