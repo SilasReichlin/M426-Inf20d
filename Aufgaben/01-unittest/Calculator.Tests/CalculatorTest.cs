@@ -72,6 +72,7 @@ namespace Calculator.Tests
             double dividend = 1;
             double divisor = 0;
             string excepted = "Man kann nicht durch 0 dividieren.";
+
             //Act
             void act() => Calculator.Division(dividend, divisor);
 
