@@ -9,8 +9,8 @@ namespace Statistics.Tests
         [Fact]
         public void TestMeanOfTwoNumbers()
         {
-            List<int> numbers = new List<int> { 2, 4 };
-            double expected = 3;
+            List<int> numbers = new List<int> { 1, 3 };
+            double expected = 2;
 
             double actual = Average.Mean(numbers);
 
@@ -23,6 +23,7 @@ namespace Statistics.Tests
             //Assert
             List<int> numbers = new List<int>();
             string expected = "Die Liste ist leer.";
+
             //Act
             void act() => Average.Mean(numbers);
 
