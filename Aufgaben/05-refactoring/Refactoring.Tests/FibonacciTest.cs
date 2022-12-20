@@ -8,7 +8,7 @@ public class FibonacciTest
     [Fact]
     public void TestFirstFibonacciNumberIsOne()
     {
-        
+        Assert.Equal(1, Fibonacci.Fib(1));
     }
 
     [Fact]
