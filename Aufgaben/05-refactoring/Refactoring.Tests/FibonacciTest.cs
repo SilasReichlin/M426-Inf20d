@@ -8,7 +8,7 @@ public class FibonacciTest
     [Fact]
     public void TestFirstFibonacciNumberIsOne()
     {
-        // TODO: write test
+        
     }
 
     [Fact]

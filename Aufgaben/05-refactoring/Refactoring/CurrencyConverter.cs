@@ -2,27 +2,31 @@ namespace Refactoring;
 
 public class CurrencyConverter
 {
-    string ToCurrency { get; }
-
-    public CurrencyConverter(string toCurrency)
+    public enum Currency
     {
-        this.ToCurrency = toCurrency;
+        USD = 0,
+        EUR,
+        GBP,
+        RUB
+    }
+
+    private readonly Dictionary<Currency, double> _currencies = new Dictionary<Currency, double>
+    {
+        [Currency.USD] = 1.09,
+        [Currency.EUR] = 0.96,
+        [Currency.GBP] = 0.82,
+        [Currency.RUB] = 79.78,
+    };
+
+    private readonly Currency _currency;
+
+    public CurrencyConverter(Currency currency)
+    {
+        this._currency = currency;
     }
 
     public double ConvertTo(double amount)
     {
-        switch (ToCurrency)
-        {
-            case "USD":
-                return amount * 1.09;
-            case "EUR":
-                return amount * 0.96;
-            case "GBP":
-                return amount * 0.82;
-            case "RUB":
-                return amount * 79.78;
-            default:
-                throw new ArgumentException($"no exchange rate for {ToCurrency} available");
-        }
+        return amount * _currencies[_currency];
     }
 }

@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/M426tasks/FileContentIndex
+/.vs/M426tasks/v17
+/.vs/slnx.sqlite
+/.vs/VSWorkspaceState.json
+/Aufgaben/05-refactoring/.vs
+/.vs/VSWorkspaceState.json

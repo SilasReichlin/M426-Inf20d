@@ -48,19 +48,15 @@ namespace Tennis.Tests
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 
-    public class TennisTests
+    public class TennisGameTest
     {
         [Theory]
         [ClassData(typeof(TestDataGenerator))]
-        public void Tennis2Test(int p1, int p2, string expected)
+        private void ScoreGetter_CorrectPlays_ReturnsCorrectScore(int player1Score, int player2Score, string expectedScore)
         {
-            var game = new TennisGameManager("player1", "player2");
-            CheckAllScores(game, p1, p2, expected);
-        }
-
-        private void CheckAllScores(TennisGameManager game, int player1Score, int player2Score, string expectedScore)
-        {
+            var game = new TennisGame("player1", "player2");
             var highestScore = Math.Max(player1Score, player2Score);
+
             for (var i = 0; i < highestScore; i++)
             {
                 if (i < player1Score)
@@ -69,7 +65,7 @@ namespace Tennis.Tests
                     game.WonPoint("player2");
             }
 
-            Assert.Equal(expectedScore, game.Score_Getter());
+            Assert.Equal(expectedScore, game.ScoreGetter());
         }
     }
 }
