@@ -3,9 +3,9 @@ using Geometry.ThirdParty;
 
 namespace Geometry
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             IRectangular rectangle = new Rectangle(3, 4);
             Console.WriteLine(rectangle);
@@ -16,6 +16,7 @@ namespace Geometry
             IQuadratic square = new Square(3);
             IRectangular rectSquare = new RectangleAdapter(square);
             Console.WriteLine(square);
+            Console.WriteLine("Height width ratio:\t" + Calculator.GetWidthHeightRatio(rectSquare));
             Console.WriteLine("Area:\t\t" + Calculator.GetArea(rectSquare));
             Console.WriteLine("Perimeter:\t" + Calculator.GetPerimeter(rectSquare));
             Console.WriteLine("Diagonal:\t" + Calculator.GetDiagonal(rectSquare));

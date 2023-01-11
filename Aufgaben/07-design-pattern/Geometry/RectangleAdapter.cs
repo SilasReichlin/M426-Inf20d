@@ -4,7 +4,7 @@ namespace Geometry
 {
     public class RectangleAdapter : IRectangular
     {
-        private IQuadratic square;
+        private readonly IQuadratic square;
 
         public RectangleAdapter(IQuadratic square)
         {
