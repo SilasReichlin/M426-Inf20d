@@ -17,9 +17,11 @@ namespace Payroll
             jayneDone.AddNote("AccountDetails", "XYZ-789");
             johnDoe.AddNote("Position", "Head of HR");
 
-            // FIXME: Payroll.Employable -> Payroll.ThirdParty
-            // Banking.PayOut(johnDoe, johnDoe.GetSalary() / 12);
-            // Banking.PayOut(jayneDone, jayneDone.GetSalary() / 12);
+            AccountHolderAdapter accJohnDoe = new(johnDoe);
+            AccountHolderAdapter accJayneDone = new(jayneDone);
+
+            Banking.PayOut(accJohnDoe, johnDoe.GetSalary() / 12);
+            Banking.PayOut(accJayneDone, jayneDone.GetSalary() / 12);
         }
     }
 }
